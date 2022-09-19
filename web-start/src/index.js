@@ -49,7 +49,6 @@ import { getFirebaseConfig } from './firebase-config.js';
 
 // Signs-in Friendly Chat.
 async function signIn() {
-  alert('TODO: Implement Google Sign-In');
   // TODO 1: Sign in Firebase with credential from the Google user.
     var provider = new GoogleAuthProvider();
     await signInWithPopup(getAuth(), provider);
@@ -87,6 +86,16 @@ function isUserSignedIn() {
 // Saves a new message on the Cloud Firestore.
 async function saveMessage(messageText) {
   // TODO 7: Push a new message to Cloud Firestore.
+    try {
+        await addDoc(collection(getFirestore(), "messages"), {
+            name: getUserName(),
+            text: messageText,
+            profilePicUrl: getProfilePicUrl(),
+            timestamp: serverTimestamp()
+        });
+    } catch (error) {
+        console.error("Error adding document to Firebase DB: ", error);
+    }
 }
 
 // Loads chat messages history and listens for upcoming ones.

@@ -6,6 +6,8 @@
  * 3. Select Config from the Firebase SDK snippet pane.
  * 4. Copy the config object snippet, then add it here.
  */
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyCuZNxBF2J2UEGVzum-8lIYRbz6_6Xggxo",
   authDomain: "friendlychat-59f14.firebaseapp.com",
